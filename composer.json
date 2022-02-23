@@ -1,5 +1,5 @@
 {
-    "name": "jejik/mt940",
+    "name": "imetal/mt940",
     "type": "library",
     "description": "An MT940 bank statement parser for PHP",
     "keywords": ["mt940", "parser", "parsing"],
@@ -14,6 +14,11 @@
             "name": "powercloud GmbH / Dominic Richter",
             "email": "dominic.richter@power.cloud",
             "homepage": "https://www.power.cloud"
+        },
+        {
+            "name": "iMetal",
+            "email": "info@imetal.nl",
+            "homepage": "https://imetal.nl"
         }
     ],
     "require": {
