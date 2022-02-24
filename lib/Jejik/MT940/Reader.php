@@ -389,12 +389,20 @@ class Reader
     /**
      * Create a Transaction object
      */
-    public function createTransaction(): TransactionInterface
+    public function createTransaction(?String $bankRef): TransactionInterface
     {
-        return $this->createObject(
+        /** @var Transaction $object */
+        $object = $this->createObject(
             $this->transactionClass,
-            TransactionInterface::class
+            TransactionInterface::class,
+            [$bankRef]
         );
+
+        if (!empty($bankRef)) {
+            $object->setBankRef($bankRef);
+        }
+
+        return $object;
     }
 
     /**
