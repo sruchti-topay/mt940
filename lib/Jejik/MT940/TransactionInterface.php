@@ -164,6 +164,18 @@ interface TransactionInterface
     public function setEref(string $eref = null): TransactionInterface;
 
     /**
+     * Get PRef for this transaction
+     */
+    public function getPref(): ?string;
+
+    /**
+     * Set Pref for this transaction
+     * @param string $eref
+     * @return $this
+     */
+    public function setPref(string $eref = null): TransactionInterface;
+
+    /**
      * Get BIC for this transaction
      */
     public function getBIC(): ?string;

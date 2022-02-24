@@ -96,6 +96,11 @@ class Transaction implements TransactionInterface
     /**
      * @var string
      */
+    private $pref;
+
+    /**
+     * @var string
+     */
     private $bic;
 
     /**

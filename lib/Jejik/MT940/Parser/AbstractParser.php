@@ -484,6 +484,7 @@ abstract class AbstractParser
             ->setPrimanota($this->primanota($lines))
             ->setExtCode($this->extCode($lines))
             ->setEref($this->eref($lines))
+            ->setPref($this->pref($lines))
             ->setBIC($this->bic($lines))
             ->setIBAN($this->iban($lines))
             ->setAccountHolder($this->accountHolder($lines))
@@ -626,6 +627,14 @@ abstract class AbstractParser
      * Parse eref for provided transaction lines
      */
     protected function eref(array $lines): ?string
+    {
+        return null;
+    }
+
+    /**
+     * Parse eref for provided transaction lines
+     */
+    protected function pref(array $lines): ?string
     {
         return null;
     }
