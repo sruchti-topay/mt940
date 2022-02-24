@@ -380,6 +380,23 @@ class Transaction implements TransactionInterface
     }
 
     /**
+     * Get PRef for this transaction
+     */
+    public function getPref(): ?string
+    {
+        return ($this->pref !== null) ? trim($this->pref) : null;
+    }
+
+    /**
+     * Set Pref for this transaction
+     */
+    public function setPref(string $pref = null): TransactionInterface
+    {
+        $this->pref = $pref;
+        return $this;
+    }
+
+    /**
      * Get BIC for this transaction
      */
     public function getBIC(): ?string
