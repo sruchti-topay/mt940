@@ -93,6 +93,30 @@ class Ing extends GermanBank
         return $transaction;
     }
 
+    protected function cntp(array $lines, int $index) : ?string {
+        // get :86: line -- it is second in provided array [:61:,:86:,....]
+        $cntpLine = isset($lines[1]) ? $lines[1] : null;
+
+        // assure bic line
+        if ($cntpLine === null) {
+            return null;
+        }
+
+        // because we also match CS2 line endings within the payload, remove these before continuing
+        $payload = $this->removeNewLinesFromLine($cntpLine);
+
+        // Regex for the 'x' character class of input for MT940. Note: omitted are the single quote (') and forward slash (/) as they make it hard to parse input and usually are not used.
+        $swift_regex_x = '[0-9a-zA-Z\-\?\(\)\.,+\{\}\:\s]';
+        // Subfields for CNTP: account number / BIC number / Name / City
+        $regex = '/\/CNTP\/('.$swift_regex_x.'*)\/('.$swift_regex_x.'*)\/('.$swift_regex_x.'*)\/('.$swift_regex_x.'*)\//';
+
+        if (preg_match($regex, $payload, $match)) {
+            return $match[$index];
+        }
+
+        return null;
+    }
+
     /**
      * Get the contra account from a transaction
      *
@@ -295,5 +319,29 @@ class Ing extends GermanBank
         return $multiUseLine
             ? $this->getSubfield($multiUseLine, static::IDENTIFIER_PREF)
             : null;
+    }
+
+    /**
+     * Parse bic for provided transaction lines
+     */
+    protected function bic(array $lines): ?string
+    {
+        return $this->cntp($lines, 2);
+    }
+
+    /**
+     * Parse iban for provided transaction lines
+     */
+    protected function iban(array $lines): ?string
+    {
+        return $this->cntp($lines, 1);
+    }
+
+    /**
+     * Parse accountHolder for provided transaction lines
+     */
+    protected function accountHolder(array $lines): ?string
+    {
+        return $this->cntp($lines, 3);
     }
 }
