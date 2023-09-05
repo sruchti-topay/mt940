@@ -16,9 +16,9 @@
             "homepage": "https://www.power.cloud"
         },
         {
-            "name": "iMetal",
-            "email": "info@imetal.nl",
-            "homepage": "https://imetal.nl"
+            "name": "Sander Ruchti",
+            "email": "sander@topay.nl",
+            "homepage": "https://github.com/sruchti-topay/mt940"
         }
     ],
     "require": {
