@@ -1,4 +1,4 @@
-# imetal/mt940
+# topay/mt940
 
 An MT940 bank statement parser for PHP
 
@@ -6,16 +6,16 @@ An MT940 bank statement parser for PHP
 
 ## Installation
 
-You can install imetal/mt940 using Composer. You can read more about Composer and its main repository at
+You can install topay/mt940 using Composer. You can read more about Composer and its main repository at
 [http://packagist.org](http://packagist.org "Packagist"). First install Composer for your project using the instructions on the
-Packagist home page, then define your dependency on imetal/mt940 in your `composer.json` file.
+Packagist home page, then define your dependency on topay/mt940 in your `composer.json` file.
 
 ```bash
-composer require imetal/mt940
+composer require topay/mt940
 ```
 
 This library follows the [PSR-0 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md). You will need
-a PSR-0 compliant autoloader to load the imetal/mt940 classes. Composer provides one for you in your
+a PSR-0 compliant autoloader to load the topay/mt940 classes. Composer provides one for you in your
 `vendor/.composer/autoload.php`.
 
 [PSR-12 standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-12-extended-coding-style-guide.md) is for Code-Syntax.

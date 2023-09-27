@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /*
- * This file is part of the imetal\mt940 library, based on Cyberwizzard\MT940 library which is a fork of the Jejik\MT940 library and Jejik\MT940
+ * This file is part of the topay\mt940 forked from imetal\mt940 library, based on Cyberwizzard\MT940 library which is a fork of the Jejik\MT940 library and Jejik\MT940
  *
  * Copyright (c) 2022 Hedzer Oosterwal <info@imetal.nl>
  * Copyright (c) 2017 Berend Dekens <cyberwizzard@gmail.com>
