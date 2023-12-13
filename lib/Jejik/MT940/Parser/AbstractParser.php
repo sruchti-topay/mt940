@@ -466,7 +466,7 @@ abstract class AbstractParser
         }
 
         $description = $lines[1] ?? null;
-        $transaction = $this->reader->createTransaction();
+        $transaction = $this->reader->createTransaction($this->bankRef($lines));
         $transaction
             ->setAmount($amount)
             ->setContraAccount($this->contraAccount($lines))
