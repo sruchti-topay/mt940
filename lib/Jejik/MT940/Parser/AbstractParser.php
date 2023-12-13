@@ -351,10 +351,7 @@ abstract class AbstractParser
             if ($line60F = $this->getLine('60F', $text)) {
                 $pcreCurrency = '/(C|D)(\d{6})([A-Z]{3})([0-9,]{1,15})/';
                 preg_match($pcreCurrency, $text, $match);
-                if (isset($match[3])) {
-                    return $match[3];
-                }
-                return null;
+                return $match[3] ?? null;
             }
         }
         return $currency;
@@ -425,7 +422,7 @@ abstract class AbstractParser
 
         // Parse the amount
         $amount = (float)str_replace(',', '.', $match[4]);
-        if (in_array($match[3], array('D', 'DR', 'RC'))) {
+        if (in_array($match[3], array('D', 'DR','RC','RCR'))) {
             $amount *= -1;
         }
 
@@ -468,8 +465,8 @@ abstract class AbstractParser
             $bookDate = $bookDateCollection[min(array_keys($bookDateCollection))];
         }
 
-        $description = isset($lines[1]) ? $lines[1] : null;
-        $transaction = $this->reader->createTransaction($this->bankRef($lines));
+        $description = $lines[1] ?? null;
+        $transaction = $this->reader->createTransaction();
         $transaction
             ->setAmount($amount)
             ->setContraAccount($this->contraAccount($lines))
@@ -492,6 +489,12 @@ abstract class AbstractParser
             ->setMref($this->mref($lines))
             ->setCred($this->cred($lines))
             ->setSvwz($this->svwz($lines))
+            ->setPurp($this->purp($lines))
+            ->setDebt($this->debt($lines))
+            ->setCoam($this->coam($lines))
+            ->setOamt($this->oamt($lines))
+            ->setAbwa($this->abwa($lines))
+            ->setAbwe($this->abwe($lines))
             ->setDescription($this->description($description));
 
         return $transaction;
@@ -691,6 +694,54 @@ abstract class AbstractParser
      * Parse svwz for provided transaction lines
      */
     protected function svwz(array $lines): ?string
+    {
+        return null;
+    }
+
+    /**
+     * Parse purp for provided transaction lines
+     */
+    protected function purp(array $lines): ?string
+    {
+        return null;
+    }
+
+    /**
+     * Parse debt for provided transaction lines
+     */
+    protected function debt(array $lines): ?string
+    {
+        return null;
+    }
+
+    /**
+     * Parse coam for provided transaction lines
+     */
+    protected function coam(array $lines): ?string
+    {
+        return null;
+    }
+
+    /**
+     * Parse oamt for provided transaction lines
+     */
+    protected function oamt(array $lines): ?string
+    {
+        return null;
+    }
+
+    /**
+     * Parse abwa for provided transaction lines
+     */
+    protected function abwa(array $lines): ?string
+    {
+        return null;
+    }
+
+    /**
+     * Parse abwe for provided transaction lines
+     */
+    protected function abwe(array $lines): ?string
     {
         return null;
     }
